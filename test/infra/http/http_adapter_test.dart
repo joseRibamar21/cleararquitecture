@@ -19,7 +19,7 @@ void main() {
     sut = HttpAdapter(client);
     url = faker.internet.httpUrl();
   });
-
+  
   group('shared', () {
     test('Should throw ServerError if invalid method is provided', () async {
       final future = sut
