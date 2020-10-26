@@ -51,6 +51,10 @@ class LoginPage extends StatelessWidget {
                   ),
                   RaisedButton(
                     onPressed: null,
+<<<<<<< HEAD:lib/ui/pages/login/login_page.dart
+=======
+                    
+>>>>>>> 9c977eb9718dcd0e34f29abe59348612131e17ab:lib/ui/pages/login_page.dart
                     child: Text('Entrar'.toUpperCase()),
                   ),
                   FlatButton.icon(
