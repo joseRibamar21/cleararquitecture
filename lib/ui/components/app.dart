@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../pages/page.dart';
+import '../pages/pages.dart';
 
 class App extends StatelessWidget {
   @override
@@ -41,7 +41,7 @@ class App extends StatelessWidget {
               textTheme: ButtonTextTheme.primary,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)))),
-      home: LoginPage(),
+      home: LoginPage(null),
     );
   }
 }
