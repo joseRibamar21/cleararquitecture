@@ -30,7 +30,7 @@ class LoginPage extends StatelessWidget {
                           labelText: 'Email',
                           icon: Icon(Icons.email,
                               color: Theme.of(context).primaryColorLight),
-                          errorText: snapshot.data
+                          errorText: snapshot.data?.isEmpty == true ? null : snapshot.data
                         ),
                         keyboardType: TextInputType.emailAddress,
                         onChanged: presenter.validadeEmail,
@@ -39,23 +39,30 @@ class LoginPage extends StatelessWidget {
                   ),
                   Padding(
                     padding: EdgeInsets.only(top: 8, bottom: 32),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        labelText: 'Senha',
-                        icon: Icon(Icons.lock,
-                            color: Theme.of(context).primaryColorLight),
-                      ),
-                      onChanged: presenter.validadePassword,
-                      obscureText: true,
+                    child: StreamBuilder<String>(
+                      stream: presenter.passwordErrorStream,
+                      builder: (context, snapshot) {
+                        return TextFormField(
+                          decoration: InputDecoration(
+                            labelText: 'Senha',
+                            icon: Icon(Icons.lock,
+                                color: Theme.of(context).primaryColorLight),
+                            errorText: snapshot.data?.isEmpty == true ? null : snapshot.data
+                          ),
+                          onChanged: presenter.validadePassword,
+                          obscureText: true,
+                        );
+                      }
                     ),
                   ),
-                  RaisedButton(
-                    onPressed: null,
-<<<<<<< HEAD:lib/ui/pages/login/login_page.dart
-=======
-                    
->>>>>>> 9c977eb9718dcd0e34f29abe59348612131e17ab:lib/ui/pages/login_page.dart
-                    child: Text('Entrar'.toUpperCase()),
+                  StreamBuilder<bool>(
+                    stream: presenter.isFormValidStream,
+                    builder: (context, snapshot) {
+                      return RaisedButton(
+                        onPressed: snapshot.data == true ? (){}:null,
+                        child: Text('Entrar'.toUpperCase()),
+                      );
+                    }
                   ),
                   FlatButton.icon(
                       onPressed: () {},
