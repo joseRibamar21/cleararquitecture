@@ -19,3 +19,4 @@ void main() {
     expect(sut.validate(null), 'Campo obrigatório');
   });
 }
+  
