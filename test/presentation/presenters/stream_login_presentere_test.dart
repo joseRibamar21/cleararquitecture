@@ -2,12 +2,12 @@ import 'package:faker/faker.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
+import 'package:cleanarquiteture2/presentantion/presenters/presenters.dart';
+import 'package:cleanarquiteture2/presentantion/protocols/protocols.dart';
 import 'package:cleanarquiteture2/domain/helpers/helpers.dart';
 import 'package:cleanarquiteture2/domain/entities/entities.dart';
 import 'package:cleanarquiteture2/domain/usecases/usecases.dart';
 
-import 'package:cleanarquiteture2/presenter/presenters/presenters.dart';
-import 'package:cleanarquiteture2/presenter/protocols/protocols.dart';
 
 class ValidationSpy extends Mock implements Validation {}
 
